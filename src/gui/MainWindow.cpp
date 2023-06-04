@@ -9,4 +9,15 @@ MainWindow::MainWindow(QWidget *parent)
 	, m_ui(new Ui::MainWindowClass())
 {
 	m_ui->setupUi(this);
+
+	
+}
+
+void MainWindow::on_action_Open_triggered(bool value)
+{
+}
+
+void MainWindow::on_action_Quit_triggered(bool value)
+{
+	close();
 }
