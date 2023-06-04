@@ -14,6 +14,7 @@ option(OpenSceneGraph_DEBUG on)
 
 file(GLOB GUI_HEADERS ${INCLUDE_GUI_DIR}/*.h)
 file(GLOB GUI_SRCS ${SRC_GUI_DIR}/*.cpp)
+file(GLOB GUI_UIS ${SRC_GUI_DIR}/*.ui)
 
 #Qt
 find_package(Qt6 REQUIRED COMPONENTS Core Gui OpenGL OpenGLWidgets Widgets)
@@ -25,6 +26,7 @@ find_package(OpenSceneGraph REQUIRED osg osgDB OpenThreads osgGA osgViewer osgUt
 add_library(Gui SHARED
     ${GUI_HEADERS}
     ${GUI_SRCS}
+    ${GUI_UIS}
 )
 
 target_include_directories(Gui PRIVATE

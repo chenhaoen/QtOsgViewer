@@ -13,3 +13,12 @@ MainWindow::MainWindow(QWidget* parent)
 
 	setCentralWidget(m_OsgWidget);
 }
+
+void MainWindow::on_action_Open_triggered(bool value)
+{
+}
+
+void MainWindow::on_action_Quit_triggered(bool value)
+{
+	close();
+}
