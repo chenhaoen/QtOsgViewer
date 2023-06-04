@@ -29,6 +29,7 @@ add_library(Gui SHARED
 
 target_include_directories(Gui PRIVATE
     ${INCLUDE_GUI_DIR}
+    ${OSG_INCLUDE_DIR}
 )
 
 target_link_libraries(Gui PRIVATE
