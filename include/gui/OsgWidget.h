@@ -11,62 +11,72 @@
 
 namespace osgWidget
 {
-  //! The subclass of osgViewer::CompositeViewer we use
-  /*!
-   * This subclassing allows us to remove the annoying automatic
-   * setting of the CPU affinity to core 0 by osgViewer::ViewerBase,
-   * osgViewer::CompositeViewer's base class.
-   */
-  class Viewer : public osgViewer::CompositeViewer
-  {
-    public:
-	    virtual void setupThreading();
-  };
+	//! The subclass of osgViewer::CompositeViewer we use
+	/*!
+	 * This subclassing allows us to remove the annoying automatic
+	 * setting of the CPU affinity to core 0 by osgViewer::ViewerBase,
+	 * osgViewer::CompositeViewer's base class.
+	 */
+	class Viewer : public osgViewer::CompositeViewer
+	{
+	public:
+		virtual void setupThreading();
+	};
 }
 
 class OsgWidget : public QOpenGLWidget
 {
-  Q_OBJECT
+	Q_OBJECT
 
 public:
-  OsgWidget( QWidget* parent = 0,
-             Qt::WindowFlags f =Qt::WindowType:: Widget);
+	OsgWidget(QWidget* parent = 0, Qt::WindowFlags f = Qt::WindowType::Widget);
 
-  virtual ~OsgWidget();
+	void insertNode(const QString& name, osg::ref_ptr<osg::Node> node);
+	void eraseNode(const QString& name);
+	void clearNode();
 
 protected:
 
-  virtual void paintEvent( QPaintEvent* paintEvent );
-  virtual void paintGL();
-  virtual void resizeGL( int width, int height );
+	virtual void paintEvent(QPaintEvent* paintEvent);
+	virtual void paintGL();
+	virtual void resizeGL(int width, int height);
 
-  virtual void keyPressEvent( QKeyEvent* event );
-  virtual void keyReleaseEvent( QKeyEvent* event );
+	virtual void keyPressEvent(QKeyEvent* event);
+	virtual void keyReleaseEvent(QKeyEvent* event);
 
-  virtual void mouseMoveEvent( QMouseEvent* event );
-  virtual void mousePressEvent( QMouseEvent* event );
-  virtual void mouseReleaseEvent( QMouseEvent* event );
-  virtual void wheelEvent( QWheelEvent* event );
+	virtual void mouseMoveEvent(QMouseEvent* event);
+	virtual void mousePressEvent(QMouseEvent* event);
+	virtual void mouseReleaseEvent(QMouseEvent* event);
+	virtual void wheelEvent(QWheelEvent* event);
 
-  virtual bool event( QEvent* event );
+	virtual bool event(QEvent* event);
 
 private:
 
-  virtual void onHome();
-  virtual void onResize( int width, int height );
+	virtual void onHome();
+	virtual void onResize(int width, int height);
 
-  osgGA::EventQueue* getEventQueue() const;
+	osgGA::EventQueue* getEventQueue() const;
 
-  osg::ref_ptr<osgViewer::GraphicsWindowEmbedded> graphicsWindow_;
-  osg::ref_ptr<osgWidget::Viewer> viewer_;
+	void processSelection();
 
-  QPoint selectionStart_;
-  QPoint selectionEnd_;
+	void resetRoot();
+private:
 
-  bool selectionActive_;
-  bool selectionFinished_;
+	osg::ref_ptr<osgViewer::GraphicsWindowEmbedded> graphicsWindow_;
+	osg::ref_ptr<osgWidget::Viewer> viewer_;
 
-  void processSelection();
+	QPoint selectionStart_;
+	QPoint selectionEnd_;
+
+	bool selectionActive_;
+	bool selectionFinished_;
+
+
+
+	std::map<QString, osg::ref_ptr<osg::Node>> m_nodes;
+
+	osg::ref_ptr<osg::Group> m_root;
 };
 
 #endif

@@ -10,7 +10,6 @@ class  GUI_EXPORT GuiInterface
 {
 public:
 	GuiInterface();
-	~GuiInterface() = default;
 
 	void showMainWindow();
 

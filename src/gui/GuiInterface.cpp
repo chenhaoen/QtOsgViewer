@@ -9,5 +9,5 @@ GuiInterface::GuiInterface()
 
 void GuiInterface::showMainWindow()
 {
-	m_mainWindow->show();
+	m_mainWindow->showMaximized();
 }

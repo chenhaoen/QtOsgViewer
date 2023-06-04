@@ -13,12 +13,11 @@ class  MainWindow : public QMainWindow
 	Q_OBJECT
 
 public:
-	MainWindow(QWidget *parent = nullptr);
-	~MainWindow() = default;
+	MainWindow(QWidget* parent = nullptr);
 
 private slots:
-	void on_action_Open_triggered(bool value);
-	void on_action_Quit_triggered(bool value);
+	void on_action_Open_triggered();
+	void on_action_Quit_triggered();
 
 private:
 	std::shared_ptr<Ui::MainWindowClass> m_ui;

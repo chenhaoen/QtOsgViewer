@@ -4,7 +4,11 @@
 
 int main(int argc, char** argv)
 {
-	QApplication application(argc,argv);
+	QApplication application(argc, argv);
+
+	QCoreApplication::setOrganizationName("chenhaoen");
+	QCoreApplication::setOrganizationDomain("");
+	QCoreApplication::setApplicationName("QtOsgViewer");
 
 	GuiInterface guiInterface;
 	guiInterface.showMainWindow();

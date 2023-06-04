@@ -6,14 +6,14 @@
 class PickHandler : public osgGA::GUIEventHandler
 {
 public:
-  PickHandler( double devicePixelRatio = 1.0 );
-  virtual ~PickHandler();
+	PickHandler(double devicePixelRatio = 1.0);
+	virtual ~PickHandler();
 
-  virtual bool handle( const osgGA::GUIEventAdapter&  ea,
-                             osgGA::GUIActionAdapter& aa );
+	virtual bool handle(const osgGA::GUIEventAdapter& ea,
+		osgGA::GUIActionAdapter& aa);
 
 private:
-  double devicePixelRatio_;
+	double devicePixelRatio_;
 };
 
 #endif
