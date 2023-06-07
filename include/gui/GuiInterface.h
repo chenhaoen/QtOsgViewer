@@ -11,8 +11,7 @@ class  GUI_EXPORT GuiInterface
 public:
 	GuiInterface();
 
-	void showMainWindow();
-
+	int runApplication(int argc, char** argv);
 private:
 	std::shared_ptr<MainWindow> m_mainWindow;
 };

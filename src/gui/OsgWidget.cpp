@@ -98,7 +98,7 @@ OsgWidget::OsgWidget(QWidget* parent,
 	osg::Camera* camera = new osg::Camera;
 	camera->setViewport(0, 0, this->width() * pixelRatio, this->height() * pixelRatio);
 	camera->setClearColor(osg::Vec4(105/255.0, 105 / 255.0, 105 / 255.0, 1.f));
-	//camera->setProjectionMatrixAsPerspective(100, 100, 1.f, 1000.f);
+	//camera->setProjectionMatrixAsPerspective(30.f, aspectRatio, 1.f, 1000.f);
 	camera->setGraphicsContext(graphicsWindow_);
 
 	osgViewer::View* view = new osgViewer::View;

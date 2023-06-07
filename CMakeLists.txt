@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.24)
 
 project(QtOsgViewer LANGUAGES CXX)
 
@@ -66,8 +66,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     #GUI
     Gui
 )
-
-
 
 install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION "${INSTALL_DIR}"
